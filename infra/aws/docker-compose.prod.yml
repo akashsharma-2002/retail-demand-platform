@@ -33,7 +33,7 @@ services:
     ports: !reset []
     restart: unless-stopped
   pipeline:
-    image: ghcr.io/${GITHUB_REPOSITORY}/api:${IMAGE_TAG}
+    image: ghcr.io/${GITHUB_REPOSITORY}/pipeline:${IMAGE_TAG}
   web:
     image: ghcr.io/${GITHUB_REPOSITORY}/web:${IMAGE_TAG}
     ports: !reset []

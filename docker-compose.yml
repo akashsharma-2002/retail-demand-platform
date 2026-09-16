@@ -77,7 +77,11 @@ services:
       redis: {condition: service_started}
 
   pipeline:
-    build: .
+    build:
+      context: .
+      args:
+        EXTRAS: "--extra embeddings --extra pipeline"
+    image: retail-platform-pipeline
     profiles: ["pipeline"]
     command: ["python", "-m", "retail_platform.pipeline.flow"]
     environment:

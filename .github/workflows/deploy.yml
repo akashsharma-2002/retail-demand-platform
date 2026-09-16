@@ -32,8 +32,10 @@ jobs:
           TAG=${GITHUB_SHA::12}
           docker build -t ghcr.io/${{ github.repository }}/api:$TAG .
           docker build -t ghcr.io/${{ github.repository }}/web:$TAG web
+          docker build --build-arg EXTRAS="--extra embeddings --extra pipeline" -t ghcr.io/${{ github.repository }}/pipeline:$TAG .
           docker push ghcr.io/${{ github.repository }}/api:$TAG
           docker push ghcr.io/${{ github.repository }}/web:$TAG
+          docker push ghcr.io/${{ github.repository }}/pipeline:$TAG
       - name: Assume deploy role (OIDC, no stored AWS keys)
         uses: aws-actions/configure-aws-credentials@v6
         with:

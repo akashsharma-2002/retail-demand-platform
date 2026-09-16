@@ -12,8 +12,6 @@ dependencies = [
   "pandera[polars]>=0.20",
   "lightgbm>=4.5",
   "ortools>=9.11",
-  "mlflow-skinny>=2.16",
-  "prefect>=3.0",
   "pydantic>=2.8",
   "pydantic-settings>=2.4",
   "sqlalchemy>=2.0",
@@ -33,14 +31,14 @@ dependencies = [
   "langfuse>=2.50",
   "torch>=2.4",
   "alembic>=1.13",
-  "statsforecast>=2.0.1",
-  "neuralforecast>=1.7",
   "langgraph-checkpoint-postgres>=2.0",
   "psycopg-pool>=3.2",
 ]
 
 [project.optional-dependencies]
 embeddings = ["sentence-transformers>=3.1"]
+# Nightly pipeline only; kept out of the API image (smaller image, fewer packages to patch).
+pipeline = ["mlflow-skinny>=2.16", "prefect>=3.0", "statsforecast>=2.0.1", "neuralforecast>=1.7"]
 
 [dependency-groups]
 dev = [

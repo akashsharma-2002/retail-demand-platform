@@ -1,7 +1,7 @@
 .PHONY: install data train pipeline test lint typecheck security evals up down load-test web
 
 install:
-	uv sync --extra embeddings --extra deep
+	uv sync --extra embeddings --extra pipeline
 data:
 	uv run python -m retail_platform.data
 pipeline:

@@ -3334,15 +3334,12 @@ dependencies = [
     { name = "langgraph" },
     { name = "langgraph-checkpoint-postgres" },
     { name = "lightgbm" },
-    { name = "mlflow-skinny" },
-    { name = "neuralforecast" },
     { name = "numpy" },
     { name = "openai" },
     { name = "ortools" },
     { name = "pandas" },
     { name = "pandera", extra = ["polars"] },
     { name = "polars" },
-    { name = "prefect" },
     { name = "prometheus-client" },
     { name = "psycopg", extra = ["binary"] },
     { name = "psycopg-pool" },
@@ -3354,7 +3351,6 @@ dependencies = [
     { name = "redis" },
     { name = "slowapi" },
     { name = "sqlalchemy" },
-    { name = "statsforecast" },
     { name = "structlog" },
     { name = "torch", version = "2.14.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'linux'" },
     { name = "torch", version = "2.14.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux'" },
@@ -3364,6 +3360,12 @@ dependencies = [
 [package.optional-dependencies]
 embeddings = [
     { name = "sentence-transformers" },
+]
+pipeline = [
+    { name = "mlflow-skinny" },
+    { name = "neuralforecast" },
+    { name = "prefect" },
+    { name = "statsforecast" },
 ]
 
 [package.dev-dependencies]
@@ -3388,15 +3390,15 @@ requires-dist = [
     { name = "langgraph", specifier = ">=0.2.30" },
     { name = "langgraph-checkpoint-postgres", specifier = ">=2.0" },
     { name = "lightgbm", specifier = ">=4.5" },
-    { name = "mlflow-skinny", specifier = ">=2.16" },
-    { name = "neuralforecast", specifier = ">=1.7" },
+    { name = "mlflow-skinny", marker = "extra == 'pipeline'", specifier = ">=2.16" },
+    { name = "neuralforecast", marker = "extra == 'pipeline'", specifier = ">=1.7" },
     { name = "numpy", specifier = ">=1.26" },
     { name = "openai", specifier = ">=1.50" },
     { name = "ortools", specifier = ">=9.11" },
     { name = "pandas", specifier = ">=2.2" },
     { name = "pandera", extras = ["polars"], specifier = ">=0.20" },
     { name = "polars", specifier = ">=1.8" },
-    { name = "prefect", specifier = ">=3.0" },
+    { name = "prefect", marker = "extra == 'pipeline'", specifier = ">=3.0" },
     { name = "prometheus-client", specifier = ">=0.21" },
     { name = "psycopg", extras = ["binary"], specifier = ">=3.2" },
     { name = "psycopg-pool", specifier = ">=3.2" },
@@ -3409,13 +3411,13 @@ requires-dist = [
     { name = "sentence-transformers", marker = "extra == 'embeddings'", specifier = ">=3.1" },
     { name = "slowapi", specifier = ">=0.1.9" },
     { name = "sqlalchemy", specifier = ">=2.0" },
-    { name = "statsforecast", specifier = ">=2.0.1" },
+    { name = "statsforecast", marker = "extra == 'pipeline'", specifier = ">=2.0.1" },
     { name = "structlog", specifier = ">=24.4" },
     { name = "torch", marker = "sys_platform != 'linux'", specifier = ">=2.4" },
     { name = "torch", marker = "sys_platform == 'linux'", specifier = ">=2.4", index = "https://download.pytorch.org/whl/cpu" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.30" },
 ]
-provides-extras = ["embeddings"]
+provides-extras = ["embeddings", "pipeline"]
 
 [package.metadata.requires-dev]
 dev = [
