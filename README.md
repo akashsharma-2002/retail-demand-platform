@@ -133,6 +133,9 @@ Reranking 10 candidates instead of 30 kept quality identical and cut p50 latency
   - writes only through human approval
   - retrieved text treated as untrusted
   - numeric faithfulness guard; step, token and time limits
+- **Dependency security:** pytorch-lightning is pinned to 2.6.6 over neuralforecast's `<2.6.0` constraint, fixing
+  CVE-2026-31221 and CVE-2026-58659 (unsafe checkpoint loading). TFT training was re-verified on 2.6.6. Vite was
+  upgraded to 8.3 to clear esbuild dev-server advisories.
 - **Supply chain and secrets:** non-root containers, secrets from environment (`.env` locally, AWS Secrets
   Manager in deployment), gitleaks, Bandit, pip-audit and Trivy in CI.
 

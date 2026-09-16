@@ -94,3 +94,8 @@ torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
 name = "pytorch-cpu"
 url = "https://download.pytorch.org/whl/cpu"
 explicit = true
+
+[tool.uv]
+# neuralforecast 3.2.2 pins pytorch-lightning<2.6.0, which carries CVE-2026-31221 and CVE-2026-58659 (unsafe
+# checkpoint loading). 2.6.6 fixes both; TFT training was re-verified with it (see README, Security).
+override-dependencies = ["pytorch-lightning>=2.6.6"]
