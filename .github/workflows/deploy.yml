@@ -16,7 +16,8 @@ env:
 
 jobs:
   deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # Turned on in Phase 3: repository Settings -> Secrets and variables -> Actions -> Variables -> DEPLOY_ENABLED=true
+    if: ${{ github.event.workflow_run.conclusion == 'success' && vars.DEPLOY_ENABLED == 'true' }}
     runs-on: ubuntu-latest
     environment: production
     steps:
