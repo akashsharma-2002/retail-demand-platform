@@ -1,0 +1,61 @@
+{
+  "realm": "retail",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": false,
+  "bruteForceProtected": true,
+  "accessTokenLifespan": 300,
+  "passwordPolicy": "length(12) and notUsername",
+  "roles": {
+    "realm": [
+      {"name": "viewer", "description": "Read forecasts, stock and plans"},
+      {"name": "planner", "description": "Create plans and what-if scenarios"},
+      {"name": "approver", "description": "Approve or reject plans created by someone else"},
+      {"name": "admin", "description": "Manage users and configuration"}
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "retail-web",
+      "name": "Retail planning web app",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "implicitFlowEnabled": false,
+      "redirectUris": ["http://localhost:5173/*"],
+      "webOrigins": ["http://localhost:5173"],
+      "attributes": {"pkce.code.challenge.method": "S256", "post.logout.redirect.uris": "http://localhost:5173/*"},
+      "protocolMappers": [
+        {
+          "name": "retail-api-audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "config": {"included.custom.audience": "retail-api", "access.token.claim": "true", "id.token.claim": "false"}
+        }
+      ]
+    },
+    {
+      "clientId": "retail-cli",
+      "name": "Local load tests and evals (local realm only)",
+      "publicClient": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "protocolMappers": [
+        {
+          "name": "retail-api-audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "config": {"included.custom.audience": "retail-api", "access.token.claim": "true", "id.token.claim": "false"}
+        }
+      ]
+    }
+  ],
+  "users": [
+    {"username": "vic", "enabled": true, "email": "vic@example.test", "emailVerified": true, "firstName": "Vic", "lastName": "Viewer",
+     "credentials": [{"type": "password", "value": "local-viewer-pass", "temporary": false}], "realmRoles": ["viewer"]},
+    {"username": "paula", "enabled": true, "email": "paula@example.test", "emailVerified": true, "firstName": "Paula", "lastName": "Planner",
+     "credentials": [{"type": "password", "value": "local-planner-pass", "temporary": false}], "realmRoles": ["planner"]},
+    {"username": "arun", "enabled": true, "email": "arun@example.test", "emailVerified": true, "firstName": "Arun", "lastName": "Approver",
+     "credentials": [{"type": "password", "value": "local-approver-pass", "temporary": false}], "realmRoles": ["approver"]}
+  ]
+}

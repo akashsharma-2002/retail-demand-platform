@@ -1,0 +1,80 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.8.22"
+          enable-cache: true
+      - run: uv python install 3.12
+      - run: uv sync --frozen
+      - name: Lint
+        run: uv run ruff check src tests evals
+      - name: Type check
+        run: uv run mypy src
+      - name: Tests
+        run: uv run pytest --cov=retail_platform --cov-report=xml --cov-fail-under=60
+      - name: Routing and guard evals (no model downloads)
+        run: RP_EVAL_MODES=bm25 uv run python -m evals.run_all
+      - name: Static security scan
+        run: uv run bandit -q -r src -ll
+      - name: Dependency audit
+        run: uv run pip-audit --progress-spinner off
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eval-report
+          path: artifacts/reports/evals.json
+
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - run: npm audit --audit-level=high
+
+  images:
+    needs: [python, web, secrets]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build API image
+        run: docker build -t retail-api:ci .
+      - name: Build web image
+        run: docker build -t retail-web:ci web
+      - name: Scan API image
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: retail-api:ci
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: "1"

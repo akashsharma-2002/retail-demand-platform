@@ -1,0 +1,43 @@
+# Production overrides: images from GHCR, Caddy TLS in front, no host ports except 80/443.
+services:
+  caddy:
+    image: caddy:2.8-alpine
+    ports: ["80:80", "443:443"]
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN}
+    volumes:
+      - ./infra/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+    depends_on: [api, web, keycloak]
+    restart: unless-stopped
+  postgres:
+    ports: !reset []
+    restart: unless-stopped
+  redis:
+    ports: !reset []
+    restart: unless-stopped
+  keycloak:
+    command: ["start", "--import-realm", "--proxy-headers", "xforwarded", "--http-enabled", "true"]
+    environment:
+      KC_HOSTNAME: https://${DOMAIN}/auth
+      KC_HTTP_RELATIVE_PATH: /auth
+    ports: !reset []
+    restart: unless-stopped
+  api:
+    image: ghcr.io/${GITHUB_REPOSITORY}/api:${IMAGE_TAG:?set IMAGE_TAG}
+    environment:
+      RP_ENV: production
+      RP_OIDC_ISSUER: https://${DOMAIN}/auth/realms/retail
+      RP_OIDC_JWKS_URL: http://keycloak:8080/auth/realms/retail/protocol/openid-connect/certs
+      RP_CORS_ORIGINS: '["https://${DOMAIN}"]'
+    ports: !reset []
+    restart: unless-stopped
+  pipeline:
+    image: ghcr.io/${GITHUB_REPOSITORY}/api:${IMAGE_TAG}
+  web:
+    image: ghcr.io/${GITHUB_REPOSITORY}/web:${IMAGE_TAG}
+    ports: !reset []
+    restart: unless-stopped
+
+volumes:
+  caddy_data:

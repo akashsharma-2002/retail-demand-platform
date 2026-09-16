@@ -1,0 +1,40 @@
+{"q": "What day of the week do stores do their ordering review?", "expected": "01-replenishment-review#review-cadence"}
+{"q": "If I send an order to the supplier at 3pm, when does it count?", "expected": "01-replenishment-review#review-cadence"}
+{"q": "How is the order quantity calculated from stock on hand and stock on order?", "expected": "01-replenishment-review#order-up-to-method"}
+{"q": "Can I place an extra order in the middle of the week for a best seller that is nearly empty?", "expected": "01-replenishment-review#emergency-orders"}
+{"q": "Is there a fee for rushing an urgent order?", "expected": "01-replenishment-review#emergency-orders"}
+{"q": "How much can a planner change the suggested quantity without giving a reason?", "expected": "01-replenishment-review#exceptions"}
+{"q": "Which reason codes exist for big manual changes to quantities?", "expected": "01-replenishment-review#exceptions"}
+{"q": "What in-stock probability should toys and hobby items aim for?", "expected": "02-service-levels#targets-by-category"}
+{"q": "Target availability for staple grocery lines", "expected": "02-service-levels#targets-by-category"}
+{"q": "How much extra safety stock does going from 90 to 95 percent add?", "expected": "02-service-levels#how-service-level-maps-to-stock"}
+{"q": "When does a store with poor fill rate get reviewed by the regional lead?", "expected": "02-service-levels#measuring-performance"}
+{"q": "How is each store's weekly spend limit set?", "expected": "03-budget-policy#weekly-budget"}
+{"q": "Which lines get cut first when the plan costs more than we can spend?", "expected": "03-budget-policy#when-the-budget-binds"}
+{"q": "Who signs off a plan that is 12% over budget?", "expected": "03-budget-policy#over-budget-requests"}
+{"q": "What is the absolute maximum a plan can exceed its budget?", "expected": "03-budget-policy#over-budget-requests"}
+{"q": "Does the spending headroom change at the end of the fiscal month?", "expected": "03-budget-policy#month-end"}
+{"q": "How many days does it take to receive household goods after ordering?", "expected": "04-supplier-terms#lead-times-by-department"}
+{"q": "Delivery time for HOBBIES_2 suppliers", "expected": "04-supplier-terms#lead-times-by-department"}
+{"q": "Why did the supplier portal refuse an order of 3 units?", "expected": "04-supplier-terms#minimum-order-quantities-and-case-packs"}
+{"q": "How many units are in a case of grocery items?", "expected": "04-supplier-terms#minimum-order-quantities-and-case-packs"}
+{"q": "What happens when a vendor keeps delivering late?", "expected": "04-supplier-terms#late-deliveries"}
+{"q": "Do supplier-rationed lines count as planner overrides?", "expected": "04-supplier-terms#allocation"}
+{"q": "How many days of fresh food can we hold after delivery?", "expected": "05-perishables#maximum-cover"}
+{"q": "At what level of spoilage do we review ordering for a department?", "expected": "05-perishables#waste"}
+{"q": "What discount applies to food close to its expiry date?", "expected": "05-perishables#date-rotation"}
+{"q": "Should planners adjust manually for the Super Bowl?", "expected": "06-seasonal-events#calendar-events"}
+{"q": "Are there deliveries on Boxing Day?", "expected": "06-seasonal-events#christmas-closure"}
+{"q": "Should I add an uplift for food stamp benefit days?", "expected": "06-seasonal-events#snap-days"}
+{"q": "Can we order earlier before Thanksgiving and spend more that week?", "expected": "06-seasonal-events#pre-event-build"}
+{"q": "When is a product considered a slow seller?", "expected": "07-slow-movers-clearance#definition"}
+{"q": "When do we reorder items that barely sell?", "expected": "07-slow-movers-clearance#ordering-rules"}
+{"q": "How old must hobby stock be before it gets marked down?", "expected": "07-slow-movers-clearance#clearance"}
+{"q": "How big is the first order for a product we have never sold before?", "expected": "08-new-items#initial-order"}
+{"q": "How long does a launch item rely on similar products' sales?", "expected": "08-new-items#first-weeks"}
+{"q": "When do we propose removing a new product from the range?", "expected": "08-new-items#delisting"}
+{"q": "What counts as being out of stock?", "expected": "09-stockout-escalation#detection"}
+{"q": "A top-selling item is empty in every store, who calls the supplier?", "expected": "09-stockout-escalation#escalation-levels"}
+{"q": "Can we order more of the alternative product when a food item is out?", "expected": "09-stockout-escalation#substitution"}
+{"q": "Can the person who built a plan also approve it?", "expected": "10-approvals-and-controls#separation-of-duties"}
+{"q": "How long are approval records retained?", "expected": "10-approvals-and-controls#audit"}

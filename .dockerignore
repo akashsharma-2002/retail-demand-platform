@@ -1,0 +1,13 @@
+.venv
+data
+mlruns
+artifacts
+web/node_modules
+web/dist
+.git
+**/__pycache__
+.pytest_cache
+.mypy_cache
+.ruff_cache
+output
+.env

@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+
+# Data and artefacts
+data/
+mlruns/
+mlflow.db
+mlartifacts/
+artifacts/
+*.parquet
+*.lgb
+
+# Secrets
+.env
+*.pem
+
+# Node
+web/node_modules/
+web/dist/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Personal documents
+output/
+
+# Build info
+*.tsbuildinfo

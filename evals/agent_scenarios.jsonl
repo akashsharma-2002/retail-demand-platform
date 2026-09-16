@@ -1,0 +1,42 @@
+{"q": "What's the demand forecast for FOODS_3_090 at CA_1?", "intent": "forecast", "tool": "get_forecast", "args": {"item_id": "FOODS_3_090", "store_id": "CA_1"}}
+{"q": "how many units of foods_3_586 will ca_3 sell next month", "intent": "forecast", "tool": "get_forecast", "args": {"item_id": "FOODS_3_586", "store_id": "CA_3"}}
+{"q": "Expected sales HOBBIES_1_234 CA_2", "intent": "forecast", "tool": "get_forecast", "args": {"item_id": "HOBBIES_1_234", "store_id": "CA_2"}}
+{"q": "Demand outlook for HOUSEHOLD_1_118 in CA_4", "intent": "forecast", "tool": "get_forecast", "args": {"item_id": "HOUSEHOLD_1_118", "store_id": "CA_4"}}
+{"q": "Forecast FOODS_2_019 CA_1 please", "intent": "forecast", "tool": "get_forecast", "args": {"item_id": "FOODS_2_019", "store_id": "CA_1"}}
+{"q": "How much FOODS_3_252 stock is on hand at CA_1?", "intent": "position", "tool": "get_inventory_position", "args": {"item_id": "FOODS_3_252", "store_id": "CA_1"}}
+{"q": "Inventory position for HOUSEHOLD_2_040 CA_2", "intent": "position", "tool": "get_inventory_position", "args": {"item_id": "HOUSEHOLD_2_040", "store_id": "CA_2"}}
+{"q": "What's on order for HOBBIES_2_015 at CA_3", "intent": "position", "tool": "get_inventory_position", "args": {"item_id": "HOBBIES_2_015", "store_id": "CA_3"}}
+{"q": "current stock of FOODS_1_004 in CA_4", "intent": "position", "tool": "get_inventory_position", "args": {"item_id": "FOODS_1_004", "store_id": "CA_4"}}
+{"q": "Why should we order FOODS_3_090 for CA_1?", "intent": "explain_item", "tool": "explain_item_order", "args": {"item_id": "FOODS_3_090", "store_id": "CA_1"}}
+{"q": "Explain the order for HOUSEHOLD_1_118 at CA_4", "intent": "explain_item", "tool": "explain_item_order", "args": {"item_id": "HOUSEHOLD_1_118", "store_id": "CA_4"}}
+{"q": "How many should we order of FOODS_3_586 at CA_3?", "intent": "explain_item", "tool": "explain_item_order", "args": {"item_id": "FOODS_3_586", "store_id": "CA_3"}}
+{"q": "Should we order HOBBIES_1_234 for CA_2 this week?", "intent": "explain_item", "tool": "explain_item_order", "args": {"item_id": "HOBBIES_1_234", "store_id": "CA_2"}}
+{"q": "What is the reason for ordering FOODS_2_019 in CA_1", "intent": "explain_item", "tool": "explain_item_order", "args": {"item_id": "FOODS_2_019", "store_id": "CA_1"}}
+{"q": "Show me this week's replenishment plan for CA_1", "intent": "plan", "tool": "preview_plan", "args": {"store_id": "CA_1"}}
+{"q": "What should CA_2 order this week?", "intent": "plan", "tool": "preview_plan", "args": {"store_id": "CA_2"}}
+{"q": "Draft purchase plan for CA_3 with $40k", "intent": "plan", "tool": "preview_plan", "args": {"store_id": "CA_3", "budget": 40000}}
+{"q": "Replenish CA_4 under a budget of 35000", "intent": "plan", "tool": "preview_plan", "args": {"store_id": "CA_4", "budget": 35000}}
+{"q": "Which orders does CA_1 need?", "intent": "plan", "tool": "preview_plan", "args": {"store_id": "CA_1"}}
+{"q": "What if demand drops 20% at CA_1?", "intent": "what_if", "tool": "what_if", "args": {"store_id": "CA_1", "demand_change_pct": -20}}
+{"q": "What happens at CA_2 if demand rises 15%?", "intent": "what_if", "tool": "what_if", "args": {"store_id": "CA_2", "demand_change_pct": 15}}
+{"q": "Scenario: supplier lead time is 3 days longer for CA_3", "intent": "what_if", "tool": "what_if", "args": {"store_id": "CA_3", "lead_time_change_days": 3}}
+{"q": "What if deliveries are 2 days late and demand is up 10% at CA_4?", "intent": "what_if", "tool": "what_if", "args": {"store_id": "CA_4", "demand_change_pct": 10, "lead_time_change_days": 2}}
+{"q": "Suppose demand falls 30% in CA_1 with a $20k budget", "intent": "what_if", "tool": "what_if", "args": {"store_id": "CA_1", "demand_change_pct": -30, "budget": 20000}}
+{"q": "What if lead times are 2 days shorter at CA_2?", "intent": "what_if", "tool": "what_if", "args": {"store_id": "CA_2", "lead_time_change_days": -2}}
+{"q": "Submit the order plan for CA_1", "intent": "order", "tool": "plan_replenishment", "args": {"store_id": "CA_1"}}
+{"q": "Place the order for CA_2 with a budget of $30k", "intent": "order", "tool": "plan_replenishment", "args": {"store_id": "CA_2", "budget": 30000}}
+{"q": "Please create a PO plan for CA_3", "intent": "order", "tool": "plan_replenishment", "args": {"store_id": "CA_3"}}
+{"q": "Release the orders for CA_4", "intent": "order", "tool": "plan_replenishment", "args": {"store_id": "CA_4"}}
+{"q": "Send this week's order for CA_1 to approval", "intent": "order", "tool": "plan_replenishment", "args": {"store_id": "CA_1"}}
+{"q": "Who can approve a plan above the store limit?", "intent": "policy", "tool": "search_policy", "args": {}}
+{"q": "What service level do hobby items target?", "intent": "policy", "tool": "search_policy", "args": {}}
+{"q": "Are emergency orders allowed?", "intent": "policy", "tool": "search_policy", "args": {}}
+{"q": "What's the MOQ rule for suppliers?", "intent": "policy", "tool": "search_policy", "args": {}}
+{"q": "How do we handle perishable stock limits?", "intent": "policy", "tool": "search_policy", "args": {}}
+{"q": "What is the clearance rule for slow movers?", "intent": "policy", "tool": "search_policy", "args": {}}
+{"q": "Do SNAP days need a manual uplift?", "intent": "policy", "tool": "search_policy", "args": {}}
+{"q": "Christmas delivery schedule rules", "intent": "policy", "tool": "search_policy", "args": {}}
+{"q": "forecast for FOODS_3_090", "intent": "forecast", "tool": null, "args": {}, "missing": "store"}
+{"q": "What if demand drops 10%?", "intent": "what_if", "tool": null, "args": {}, "missing": "store"}
+{"q": "tell me how mcuh stock is availale at CA_1", "intent": "store_stock", "tool": "get_store_stock", "args": {"store_id": "CA_1"}}
+{"q": "whats the inventroy position in CA_3", "intent": "store_stock", "tool": "get_store_stock", "args": {"store_id": "CA_3"}}

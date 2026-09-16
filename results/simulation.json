@@ -1,0 +1,64 @@
+{
+  "window": {
+    "start_day": 1886,
+    "days": 56,
+    "series": 12196
+  },
+  "policies": {
+    "rule_of_thumb": {
+      "policy": "rule_of_thumb",
+      "ordered_units": 992709,
+      "fill_rate": 0.9308571489875076,
+      "stockout_item_days": 27000,
+      "lost_sales_value": 260077.89,
+      "avg_inventory_value": 477780.74975,
+      "holding_cost": 18325.83697671233,
+      "ordered_value": 2275227.465,
+      "budget_violations": 0
+    },
+    "platform_sl0.8": {
+      "policy": "platform_sl0.8",
+      "ordered_units": 974060,
+      "fill_rate": 0.949479246416558,
+      "stockout_item_days": 15207,
+      "lost_sales_value": 188061.06999999995,
+      "avg_inventory_value": 477197.2343749999,
+      "holding_cost": 18303.455565068492,
+      "ordered_value": 2260358.1350000002,
+      "budget_violations": 0,
+      "solver_p95_seconds": 3.3838270646447195
+    },
+    "platform_sl0.9": {
+      "policy": "platform_sl0.9",
+      "ordered_units": 1015205,
+      "fill_rate": 0.956394019160455,
+      "stockout_item_days": 14245,
+      "lost_sales_value": 166053.05999999994,
+      "avg_inventory_value": 526720.9533749999,
+      "holding_cost": 20202.995471917806,
+      "ordered_value": 2367744.673,
+      "budget_violations": 0,
+      "solver_p95_seconds": 2.3312412170111196
+    },
+    "platform_sl0.95": {
+      "policy": "platform_sl0.95",
+      "ordered_units": 1047092,
+      "fill_rate": 0.9538104884131231,
+      "stockout_item_days": 17503,
+      "lost_sales_value": 176747.94999999995,
+      "avg_inventory_value": 569908.1266249999,
+      "holding_cost": 21859.489788356168,
+      "ordered_value": 2450147.329,
+      "budget_violations": 0,
+      "solver_p95_seconds": 2.583888498094166
+    }
+  },
+  "comparison_at_service_level": {
+    "service_level": 0.9,
+    "stockout_item_days_change_pct": -47.24,
+    "lost_sales_value_change_pct": -36.15,
+    "avg_inventory_value_change_pct": 10.24,
+    "holding_cost_change_pct": 10.24,
+    "fill_rate_points": 2.55
+  }
+}

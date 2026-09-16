@@ -1,0 +1,37 @@
+{
+  "reference_days": [
+    1069,
+    1913
+  ],
+  "current_days": [
+    1914,
+    1941
+  ],
+  "features": {
+    "roll_mean_28": {
+      "psi": 0.0273,
+      "status": "stable"
+    },
+    "roll_std_28": {
+      "psi": 0.0262,
+      "status": "stable"
+    },
+    "lag_28": {
+      "psi": 0.0094,
+      "status": "stable"
+    },
+    "sell_price": {
+      "psi": 0.0006,
+      "status": "stable"
+    },
+    "price_rel_52w": {
+      "psi": 0.0078,
+      "status": "stable"
+    },
+    "snap": {
+      "psi": 0.003,
+      "status": "stable"
+    }
+  },
+  "any_significant": false
+}

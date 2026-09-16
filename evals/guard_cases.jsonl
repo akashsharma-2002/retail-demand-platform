@@ -1,0 +1,16 @@
+{"tools": [{"cover_p90": 41.37, "position": 12, "need_units": 29.4}], "answer": "P90 demand is 41.4 units against a position of 12, a need of 29.4 units.", "faithful": true}
+{"tools": [{"cover_p90": 41.37, "position": 12, "need_units": 29.4}], "answer": "Order 36 units because P90 demand is 41.4.", "faithful": false}
+{"tools": [{"total_cost": 18234.51, "budget": 20000.0, "lines_ordered": 812}], "answer": "The plan orders 812 items for $18,234.51 against a $20,000 budget.", "faithful": true}
+{"tools": [{"total_cost": 18234.51, "budget": 20000.0, "lines_ordered": 812}], "answer": "The plan costs about $18.2k and leaves $1,765 unspent.", "faithful": false}
+{"tools": [{"delta_cost": -2311.2, "base": {"total_cost": 18234.51}, "scenario_result": {"total_cost": 15923.31}}], "answer": "Cost falls from $18,234.51 to $15,923.31, a change of $-2,311.20.", "faithful": true}
+{"tools": [{"delta_cost": -2311.2, "base": {"total_cost": 18234.51}, "scenario_result": {"total_cost": 15923.31}}], "answer": "Cost falls by 12.7%.", "faithful": false}
+{"tools": [{"total_p50": 84.2, "days": 28, "cover_days": 9, "cover_p50": 27.1, "cover_p90": 35.8}], "answer": "Forecast is 84 units over 28 days; 27.1 to 35.8 units over the 9-day cover period.", "faithful": true}
+{"tools": [{"total_p50": 84.2, "days": 28, "cover_days": 9, "cover_p50": 27.1, "cover_p90": 35.8}], "answer": "Forecast is 84 units, roughly 3 units a day, or 21 a week.", "faithful": false}
+{"tools": [{"on_hand": 14, "on_order": 24, "lead_time_days": 2, "case_pack": 12, "moq": 24}], "answer": "14 on hand and 24 on order; case pack 12, MOQ 24, lead time 2 days.", "faithful": true}
+{"tools": [{"on_hand": 14, "on_order": 24, "lead_time_days": 2, "case_pack": 12, "moq": 24}], "answer": "Position is 38 units.", "faithful": false}
+{"tools": [{"service_level": 0.9, "suggested_units": 48, "suggested_cost": 67.2}], "answer": "At a 90% service level, order 48 units for $67.20.", "faithful": true}
+{"tools": [{"service_level": 0.9, "suggested_units": 48, "suggested_cost": 67.2}], "answer": "At a 95% service level you would need 60 units.", "faithful": false}
+{"tools": [{"text": "Store approvers can approve plans up to $50,000 per week per store."}], "answer": "Store approvers can approve up to $50,000 per week.", "faithful": true}
+{"tools": [{"text": "Store approvers can approve plans up to $50,000 per week per store."}], "answer": "Store approvers can approve up to $75,000 per week.", "faithful": false}
+{"tools": [{"lead_time_change_days": 3, "unfilled_need_units": 1204.5}], "answer": "With lead time 3 days longer, 1,204.5 units of need are unfilled.", "faithful": true}
+{"tools": [{"lead_time_change_days": 3, "unfilled_need_units": 1204.5}], "answer": "About 1,200 units stay unfilled, roughly 40 cases.", "faithful": false}

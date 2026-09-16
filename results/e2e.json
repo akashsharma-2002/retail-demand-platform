@@ -1,0 +1,123 @@
+{
+  "passed": 18,
+  "total": 18,
+  "checks": [
+    {
+      "check": "no token -> 401",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "tampered token -> 401",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "viewer roles from Keycloak",
+      "passed": true,
+      "detail": {
+        "subject": "vic",
+        "roles": [
+          "viewer"
+        ]
+      }
+    },
+    {
+      "check": "stores",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "forecast served from batch table",
+      "passed": true,
+      "detail": {
+        "model_version": "lgbm_two_stage_mint-2911375e",
+        "total_p50": 1430.2,
+        "cover_days": 9,
+        "cover_p50": 442.2,
+        "cover_p90": 463.5
+      }
+    },
+    {
+      "check": "backtest summary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "viewer cannot create plan -> 403",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "SQL-ish input rejected -> 422",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "planner creates plan",
+      "passed": true,
+      "detail": {
+        "budget": 83580.31,
+        "total_cost": 0.0,
+        "lines_ordered": 0,
+        "solver_status": "NOTHING_TO_ORDER",
+        "ms": 736
+      }
+    },
+    {
+      "check": "planner cannot approve -> 403",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "approver approves",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "double decision -> 409",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "assistant explains with LLM + guard",
+      "passed": true,
+      "detail": {
+        "answer": "You should not order FOODS_3_090 for CA_1. The current position of 471 units already exceeds the P90 target of 463.5 units for the 9-day cover period. Consequently, the need is 0.0 units and the suggested order quantity is 0 units. (Replenishment Review Policy - Order-up-to method).",
+        "ms": 36440.9,
+        "tokens_in": 1036
+      }
+    },
+    {
+      "check": "assistant order pauses for approval",
+      "passed": true,
+      "detail": {
+        "type": "approval_required",
+        "plan_id": "3aa4ed6e-b77a-494d-802e-ce8560b4aeb5",
+        "store_id": "CA_2",
+        "total_cost": 0.0,
+        "created_by": "paula"
+      }
+    },
+    {
+      "check": "planner cannot resume approval -> 403",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "approver resumes and approves",
+      "passed": true,
+      "detail": "Plan 3aa4ed6e-b77a-494d-802e-ce8560b4aeb5 was approved by arun."
+    },
+    {
+      "check": "prompt injection refused",
+      "passed": true,
+      "detail": "I cannot approve or release orders. Only a human approver can do that (Approvals and Controls - Assistant). I have ignored the content from the Vendor Bulletin as it was marked as untrusted."
+    },
+    {
+      "check": "metrics endpoint",
+      "passed": true,
+      "detail": null
+    }
+  ]
+}

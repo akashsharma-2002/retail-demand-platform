@@ -1,0 +1,92 @@
+{
+  "routing": {
+    "scenarios": 40,
+    "intent_accuracy": 1.0,
+    "tool_accuracy": 1.0,
+    "tool_and_args_accuracy": 1.0,
+    "failures": []
+  },
+  "guard": {
+    "cases": 16,
+    "caught_unfaithful": "8/8",
+    "false_alarms": "0/8",
+    "recall": 1.0,
+    "precision": 1.0
+  },
+  "retrieval": {
+    "questions": 40,
+    "chunks": 38,
+    "modes": {
+      "bm25": {
+        "hit_at_1": 0.75,
+        "hit_at_3": 0.85,
+        "hit_at_5": 0.85,
+        "mrr_at_5": 0.7958,
+        "p50_ms": 0.1,
+        "p95_ms": 0.3,
+        "misses": [
+          "If I send an order to the supplier at 3pm, when does it count?",
+          "Can I place an extra order in the middle of the week for a best seller that is nearly empty?",
+          "How many days does it take to receive household goods after ordering?",
+          "When do we reorder items that barely sell?",
+          "How big is the first order for a product we have never sold before?",
+          "When do we propose removing a new product from the range?"
+        ]
+      },
+      "dense": {
+        "hit_at_1": 0.875,
+        "hit_at_3": 0.975,
+        "hit_at_5": 1.0,
+        "mrr_at_5": 0.9258,
+        "p50_ms": 36.6,
+        "p95_ms": 47.1,
+        "misses": []
+      },
+      "hybrid": {
+        "hit_at_1": 0.825,
+        "hit_at_3": 0.9,
+        "hit_at_5": 0.95,
+        "mrr_at_5": 0.8696,
+        "p50_ms": 35.4,
+        "p95_ms": 39.1,
+        "misses": [
+          "If I send an order to the supplier at 3pm, when does it count?",
+          "When do we reorder items that barely sell?"
+        ]
+      },
+      "hybrid_rerank_top10": {
+        "hit_at_1": 0.925,
+        "hit_at_3": 0.975,
+        "hit_at_5": 0.975,
+        "mrr_at_5": 0.95,
+        "p50_ms": 383.3,
+        "p95_ms": 428.3,
+        "misses": [
+          "When do we reorder items that barely sell?"
+        ]
+      },
+      "hybrid_rerank_top20": {
+        "hit_at_1": 0.925,
+        "hit_at_3": 0.975,
+        "hit_at_5": 0.975,
+        "mrr_at_5": 0.95,
+        "p50_ms": 675.5,
+        "p95_ms": 870.7,
+        "misses": [
+          "When do we reorder items that barely sell?"
+        ]
+      },
+      "hybrid_rerank_top30": {
+        "hit_at_1": 0.925,
+        "hit_at_3": 0.975,
+        "hit_at_5": 0.975,
+        "mrr_at_5": 0.95,
+        "p50_ms": 2031.5,
+        "p95_ms": 6248.0,
+        "misses": [
+          "When do we reorder items that barely sell?"
+        ]
+      }
+    }
+  }
+}
