@@ -3,24 +3,29 @@
 	header {
 		Strict-Transport-Security "max-age=31536000; includeSubDomains"
 		X-Content-Type-Options nosniff
-		X-Frame-Options DENY
 		Referrer-Policy no-referrer
-		Content-Security-Policy "default-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'"
 		-Server
 	}
 	request_body {
 		max_size 1MB
 	}
-	handle /v1/* {
-		reverse_proxy api:8000
+
+	# Keycloak administration and the master realm are never exposed to the internet.
+	@kc_admin path /auth/admin* /auth/realms/master*
+	handle @kc_admin {
+		respond 404
 	}
 	handle /auth/* {
 		reverse_proxy keycloak:8080
+	}
+	handle /v1/* {
+		reverse_proxy api:8000
 	}
 	handle /metrics {
 		respond 404
 	}
 	handle {
+		header Content-Security-Policy "default-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'"
 		reverse_proxy web:8080
 	}
 }

@@ -36,3 +36,6 @@ output/
 
 # Build info
 *.tsbuildinfo
+
+# Rendered at deploy time from the template
+infra/keycloak/prod/retail-realm.json

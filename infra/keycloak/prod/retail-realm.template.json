@@ -1,0 +1,61 @@
+{
+  "realm": "retail",
+  "enabled": true,
+  "sslRequired": "all",
+  "registrationAllowed": false,
+  "bruteForceProtected": true,
+  "accessTokenLifespan": 300,
+  "passwordPolicy": "length(12) and notUsername",
+  "roles": {
+    "realm": [
+      {
+        "name": "viewer",
+        "description": "Read forecasts, stock and plans"
+      },
+      {
+        "name": "planner",
+        "description": "Create plans and what-if scenarios"
+      },
+      {
+        "name": "approver",
+        "description": "Approve or reject plans created by someone else"
+      },
+      {
+        "name": "admin",
+        "description": "Manage users and configuration"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "retail-web",
+      "name": "Retail planning web app",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "implicitFlowEnabled": false,
+      "redirectUris": [
+        "https://__DOMAIN__/*"
+      ],
+      "webOrigins": [
+        "https://__DOMAIN__"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "https://__DOMAIN__/*"
+      },
+      "protocolMappers": [
+        {
+          "name": "retail-api-audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "config": {
+            "included.custom.audience": "retail-api",
+            "access.token.claim": "true",
+            "id.token.claim": "false"
+          }
+        }
+      ]
+    }
+  ]
+}

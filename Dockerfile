@@ -16,6 +16,7 @@ RUN apt-get update && apt-get upgrade -y --no-install-recommends \
     && groupadd --system app && useradd --system --gid app --home /app app
 WORKDIR /app
 COPY --from=build --chown=app:app /app /app
+RUN mkdir -p /app/.cache/huggingface && chown -R app:app /app/.cache
 COPY --chown=app:app knowledge ./knowledge
 COPY --chown=app:app alembic.ini ./alembic.ini
 ENV PATH="/app/.venv/bin:$PATH" PYTHONUNBUFFERED=1 HF_HOME=/app/.cache/huggingface
